@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Création de zone réactive</title>
+<style type="text/css"> 
+<!-- 
+body  {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #666666;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+}
+
+/* Tips for Elastic layouts 
+1. Since the elastic layouts overall sizing is based on the user's default fonts size, they are more unpredictable. Used correctly, they are also more accessible for those that need larger fonts size since the line length remains proportionate.
+2. Sizing of divs in this layout are based on the 100% font size in the body element. If you decrease the text size overall by using a font-size: 80% on the body element or the #container, remember that the entire layout will downsize proportionately. You may want to increase the widths of the various divs to compensate for this.
+3. If font sizing is changed in differing amounts on each div instead of on the overall design (ie: #sidebar1 is given a 70% font size and #mainContent is given an 85% font size), this will proportionately change each of the divs overall size. You may want to adjust based on your final font sizing.
+*/
+.twoColElsLtHdr #container { 
+	width: 46em;  /* this width will create a container that will fit in an 800px browser window if text is left at browser default font sizes */
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+} 
+.twoColElsLtHdr #header { 
+	background: #DDDDDD; 
+	padding: 0 10px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+} 
+.twoColElsLtHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+
+/* Tips for sidebar1:
+1. Be aware that if you set a font-size value on this div, the overall width of the div will be adjusted accordingly.
+2. Since we are working in ems, it's best not to use padding on the sidebar itself. It will be added to the width for standards compliant browsers creating an unknown actual width. 
+3. Space between the side of the div and the elements within it can be created by placing a left and right margin on those elements as seen in the ".twoColElsLtHdr #sidebar1 p" rule.
+*/
+.twoColElsLtHdr #sidebar1 {
+	float: left; 
+	width: 12em; /* since this element is floated, a width must be given */
+	background: #EBEBEB; /* the background color will be displayed for the length of the content in the column, but no further */
+	padding: 15px 0; /* top and bottom padding create visual space within this div */
+}
+.twoColElsLtHdr #sidebar1 h3, .twoColElsLtHdr #sidebar1 p {
+	margin-left: 10px; /* the left and right margin should be given to every element that will be placed in the side columns */
+	margin-right: 10px;
+}
+
+/* Tips for mainContent:
+1. If you give this #mainContent div a font-size value different than the #sidebar1 div, the margins of the #mainContent div will be based on its font-size and the width of the #sidebar1 div will be based on its font-size. You may wish to adjust the values of these divs.
+2. The space between the mainContent and sidebar1 is created with the left margin on the mainContent div.  No matter how much content the sidebar1 div contains, the column space will remain. You can remove this left margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends.
+3. To avoid float drop, you may need to test to determine the approximate maximum image/element size since this layout is based on the user's font sizing combined with the values you set. However, if the user has their browser font size set lower than normal, less space will be available in the #mainContent div than you may see on testing.
+4. In the Internet Explorer Conditional Comment below, the zoom property is used to give the mainContent "hasLayout." This avoids several IE-specific bugs that may occur.
+*/
+.twoColElsLtHdr #mainContent {
+	margin: 0 1.5em 0 13em; /* the right margin can be given in ems or pixels. It creates the space down the right side of the page. */
+} 
+.twoColElsLtHdr #footer { 
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background:#DDDDDD;
+} 
+.twoColElsLtHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+
+/* Miscellaneous classes for reuse */
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+--> 
+</style><!--[if IE]>
+<style type="text/css"> 
+/* place css fixes for all versions of IE in this conditional comment */
+.twoColElsLtHdr #sidebar1 { padding-top: 30px; }
+.twoColElsLtHdr #mainContent { zoom: 1; padding-top: 15px; }
+/* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
+</style>
+<![endif]--></head>
+
+<body class="twoColElsLtHdr">
+
+<div id="container">
+  <div id="header">
+    <marquee><h1 style="font-family: Georgia, &quot;Times New Roman&quot;, Times, serif">Bienvenue dans la cartographie en ligne</h1></marquee>
+      <!-- end #header -->
+    </h1>
+    </div>
+  <div id="sidebar1">
+    <h3>Carte choroplèthe du Sénégal</h3>
+    <p>Ici, nous vous présentons les différentes régions de la république du Sénégal surnommée le pays de la TERANGA, le Sénégal est un pays sans aucun égal dans le monde en tant qu'accueil chaleureux.Par ailleurs, au cours de nos escapades que chaque région à sa particularité. </p>
+    <p>Votre bien être est surtout notre priorité. Vous pouvez
+      <!-- end #sidebar1 -->cliquer sur les régions qui vous intéresse et on va vous y diriger.</p>
+    <p>Bonne visite</p>
+  </div>
+  <div id="mainContent">
+    <h2 style="font-family: Georgia, &quot;Times New Roman&quot;, Times, serif">Région du Sénégal</h2>
+    <p><img src="../images/senegal-political.jpg" alt="Sénégal" width="483" height="442" border="0" usemap="#Map" />
+<map name="Map" id="Map">
+  <area shape="poly" coords="89,91" href="#" />
+  <area shape="poly" coords="90,91,93,66,108,44,118,41,123,46,136,44,151,46,165,39,191,38,194,32,202,32,244,33,255,41,283,68,293,65,293,74,260,103,252,111,244,112,244,104,231,84,220,84,212,79,161,79,157,84,143,72,129,74,116,82,110,88,100,92" href="saintlouis.html" target="_blank" />
+<area shape="poly" coords="74,114,90,91,100,92,129,74,142,73,157,84,160,79,212,80,220,84,228,84,244,103,243,111,244,120,242,121,237,121,235,133,232,139,245,146,245,153,252,163,246,170,238,176,228,180,225,177,219,174,210,173,207,169,199,173,187,173,174,168,168,164,166,159,160,156,151,152,141,148,122,147,116,148,110,142,108,132,104,129,102,126,100,127,97,124,85,137,75,125,78,118" href="louga.html" target="_blank" />
+<area shape="poly" coords="25,161" href="#" />
+<area shape="poly" coords="25,161" href="#" />
+<area shape="poly" coords="24,161,44,153,50,145,57,139,61,132,74,114,77,116,74,124,79,129,85,137,98,124,100,127,104,126,103,129,108,132,109,139,117,148,112,151,100,147,88,147,79,151,77,154,80,156,81,161,82,165,82,169,82,172,86,174,89,178,84,182,77,186,73,192,72,198,71,204,69,206,64,203,62,198,58,196,58,188,49,180,43,174,43,170,30,165,28,169,28,172,16,172,16,165,15,161" href="dakar.html" target="_blank" />
+<area shape="poly" coords="108,148,110,152" href="#" />
+<area shape="poly" coords="77,153,79,151,85,148,87,147,97,147,106,150,110,151,116,148,127,147,135,148,143,150,147,152,148,156,145,161,141,165,141,170,138,176,133,178,123,180,117,178,109,174,103,176,97,173,87,173,86,174,81,172,83,168,81,165,80,160,79,156" href="diourbel.html" target="_blank" />
+<area shape="poly" coords="147,151,149,156,146,161,141,165,141,171,140,173,136,177,129,179,121,179,117,178,111,176,104,176,98,173,87,173,87,176,89,178,86,181,81,185,77,186,73,191,73,196,72,199,72,203,69,206,69,209,69,213,70,216,73,214,74,210,78,209,79,210,74,213,75,214,79,215,82,212,85,209,87,212,85,214,84,215,81,218,78,216,72,218,71,223,72,227,74,230,79,225,83,225,87,218,91,215,89,222,90,230,89,236,85,241,120,242,118,239,116,232,108,229,114,218,108,214,110,208,106,205,100,204,102,198,108,191,116,190,119,191,117,195,117,199,122,203,126,208,129,210,133,207,137,208,139,200,141,189,143,185,151,179,156,176,164,176,168,170,169,165,166,157" href="fatick.html" target="_blank" />
+<area shape="poly" coords="120,242,116,232,108,229,114,219,110,214,110,208,106,205,100,205,107,195,115,190,118,190,116,197,118,200,123,205,129,210,133,208,137,208,139,199,143,188,142,186,151,181,155,176,162,176,168,171,170,165,178,170,189,173,199,173,207,170,210,173,220,176,228,180,227,188,227,194,228,198,230,201,230,207,230,213,227,216,226,221,223,222,217,225,213,226,210,229,206,229,200,230,194,226,187,229,180,231,176,230,170,231,167,234,164,239,164,243" href="kaolack.html" target="_blank" />
+<area shape="poly" coords="293,72,300,68,307,68,307,72,310,71,315,73,319,81,322,89,324,95,329,97,326,102,332,104,338,106,336,110,338,111,343,111,346,110,350,115,348,119,354,123,358,125,353,127,355,130,360,130,360,133,367,138,373,144,376,148,376,155,373,162,373,165,368,170,365,173,360,176,352,177,343,176,332,173,328,174,323,178,319,181,313,185,309,187,297,188,287,188,274,183,267,181,261,178,254,177,249,173,247,171,252,163,247,155,245,147,232,139,236,132,237,126,237,121,243,120,243,112,253,111,261,103,276,88,287,79" href="matam.html" target="_blank" />
+<area shape="poly" coords="368,139,374,139,381,144,384,145,384,152,389,155,396,157,402,162,407,165,409,170,402,177,403,181,403,185,412,188,411,194,419,194,420,198,421,201,421,207,419,215,423,218,425,221,425,224,421,227,418,230,415,232,417,236,419,241,425,245,431,249,429,254,435,260,440,253,445,253,454,261,454,267,456,271,464,276,465,279,465,284,466,282,468,285,465,286,465,289,467,294,467,298,461,302,465,305,464,312,468,315,468,323,467,323,465,320,458,320,449,321,446,323,437,323,431,322,421,323,417,322,411,325,403,328,397,330,392,325,384,324,380,327,376,322,367,321,355,314,352,320,344,318,345,307,324,309,321,305,316,305,313,297,313,294,315,293,310,291,311,286,309,282,303,275,302,268,297,265,295,259,292,256,295,253,292,250,288,245,284,250,281,244,275,243,262,248,253,251,249,253,242,249,238,245,237,241,231,238,220,241,215,239,215,233,212,229,215,226,220,225,224,222,228,219,229,215,230,209,230,200,227,195,229,186,227,180,233,178,239,176,246,171,249,174,258,178,271,182,284,187,294,188,303,188,309,186,316,182,326,176,331,173,344,176,350,177,360,176,364,173,369,169,373,162,374,156,374,151,373,145" href="tambacounda.html" target="_blank" />
+<area shape="poly" coords="170,296,166,295,161,297,158,301,158,303,158,309,155,312,151,315,149,312,144,311,139,312,132,312,129,309,125,305,125,297,127,292,129,285,133,279,130,277,132,275,136,274,139,274,140,260,146,261,151,259,154,260,159,259,160,257,165,258,172,260,178,259,184,256,184,251,187,245,189,243,194,247,199,250,202,253,205,253,209,253,212,254,216,254,217,258,220,260,224,260,227,260,231,260,234,263,236,265,238,265,242,267,245,268,252,268,257,269,266,265,270,265,275,262,278,262,283,261,285,259,287,253,285,251,285,248,289,248,290,251,294,253,291,256,295,259,295,263,299,267,302,271,302,275,304,278,309,283,310,287,309,292,314,293,311,295,312,298,313,301,315,305,314,306,297,306,184,306,171,313,165,316,156,321,149,323,140,323,133,322,131,319,129,315,129,313,135,314,139,315,144,313,147,314,151,318,156,314,160,306,160,302,164,300" href="kolda.html" target="_blank" />
+<area shape="poly" coords="123,304" href="#" />
+<area shape="poly" coords="125,303,125,294,128,287,132,279,130,276,136,274,74,272,71,279,71,285,68,291,64,296,67,302,67,313,67,319,69,325,72,330,79,328,87,330,97,327,104,324,111,322,115,320,122,321,128,323,133,322" href="ziguinchor.html" target="_blank" />
+</map></p>
+  <!-- end #mainContent --></div>
+	<!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats --><br class="clearfloat" />
+   <div id="footer">
+    <p>SIG et Tourisme au sénégal Copyright&copy; Octobre 2024</p>
+    <!-- end #footer --></div>
+<!-- end #container --></div>
+</body>
+</html>
